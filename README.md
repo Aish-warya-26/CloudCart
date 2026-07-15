@@ -10,8 +10,16 @@ https://github.com/Aish-warya-26/CloudCart
 
 ## Home
 
-![Home](screenshots/home.png)
+![Home](frontend/screenshots/home.png)
 
+![Products](frontend/screenshots/products.png)
+
+
+![Orders](frontend/screenshots/order.png)
+
+![About](frontend/screenshots/about.png)
+
+![Docker kubernetes](frontend/screenshots/kubernetes.png)
 ---
 
 ## Features

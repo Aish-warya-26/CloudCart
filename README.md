@@ -2,6 +2,10 @@
 
 CloudCart is a cloud-native e-commerce application developed using a microservices architecture.
 
+## GitHub Repository
+
+https://github.com/Aish-warya-26/CloudCart
+
 # Screenshots
 
 ## Home

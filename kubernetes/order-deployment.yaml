@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: order-service
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: order-service
+
+  template:
+    metadata:
+      labels:
+        app: order-service
+
+    spec:
+      containers:
+      - name: order-service
+        image: aishwaryachourasia/cloudcart-order-service:v2
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 5002
+
+        env:
+        - name: DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: cloudcart-config
+              key: DATABASE_NAME
+
+        - name: MONGO_URI
+          value: mongodb://admin:password123@mongodb:27017/?authSource=admin

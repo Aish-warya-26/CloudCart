@@ -29,14 +29,12 @@ def health():
     )
 
 
-
 @cart_bp.route("/cart/<user_id>", methods=["GET"])
 def fetch_cart(user_id):
 
     try:
 
         cart = get_cart(user_id)
-
 
         if cart is None:
 
@@ -45,12 +43,10 @@ def fetch_cart(user_id):
                 404
             )
 
-
         return success_response(
             "Cart fetched successfully",
             cart
         )
-
 
     except Exception as e:
 
@@ -62,14 +58,12 @@ def fetch_cart(user_id):
         )
 
 
-
 @cart_bp.route("/cart/<user_id>/items", methods=["POST"])
 def add_cart_item(user_id):
 
     try:
 
         data = request.get_json()
-
 
         if not data:
 
@@ -78,12 +72,10 @@ def add_cart_item(user_id):
                 400
             )
 
-
         required_fields = [
             "product_id",
             "quantity"
         ]
-
 
         for field in required_fields:
 
@@ -94,7 +86,6 @@ def add_cart_item(user_id):
                     400
                 )
 
-
         item = {
 
             "product_id": data["product_id"],
@@ -103,17 +94,14 @@ def add_cart_item(user_id):
 
         }
 
-
         add_item(
             user_id,
             item
         )
 
-
         return success_response(
             "Item added to cart"
         )
-
 
     except Exception as e:
 

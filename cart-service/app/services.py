@@ -5,7 +5,6 @@ from app.database import cart_collection
 from app.models import serialize_cart
 
 
-
 def get_cart(user_id):
 
     cart = cart_collection.find_one({
@@ -14,14 +13,11 @@ def get_cart(user_id):
 
     })
 
-
     if cart:
 
         return serialize_cart(cart)
 
-
     return None
-
 
 
 def create_cart(cart):
@@ -31,7 +27,6 @@ def create_cart(cart):
     return str(result.inserted_id)
 
 
-
 def add_item(user_id, item):
 
     cart = cart_collection.find_one({
@@ -39,7 +34,6 @@ def add_item(user_id, item):
         "user_id": user_id
 
     })
-
 
     if cart:
 
@@ -56,7 +50,6 @@ def add_item(user_id, item):
             }
 
         )
-
 
     else:
 

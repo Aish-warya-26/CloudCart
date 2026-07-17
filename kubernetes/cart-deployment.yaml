@@ -18,19 +18,19 @@ spec:
 
     spec:
       containers:
-      - name: cart-service
-        image: aishwaryachourasia/cloudcart-cart-service:v2
-        imagePullPolicy: Always
+        - name: cart-service
+          image: aishwaryachourasia/cloudcart-cart-service:v2
+          imagePullPolicy: Always
 
-        ports:
-        - containerPort: 5001
+          ports:
+            - containerPort: 5001
 
-        env:
-        - name: DATABASE_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: cloudcart-config
-              key: DATABASE_NAME
+          env:
+            - name: DATABASE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: cloudcart-config
+                  key: DATABASE_NAME
 
-        - name: MONGO_URI
-          value: mongodb://admin:password123@mongodb:27017/?authSource=admin
+            - name: MONGO_URI
+              value: mongodb://admin:password123@mongodb:27017/?authSource=admin

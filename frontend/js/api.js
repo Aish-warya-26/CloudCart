@@ -33,7 +33,15 @@ async function getProducts() {
 
 }
 
+async function getProduct(productId) {
 
+    const response = await fetch(
+        `${API.PRODUCT_SERVICE}/products/${productId}`
+    );
+
+    return await response.json();
+
+}
 
 /* ==========================================
    Cart APIs

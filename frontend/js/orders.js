@@ -2,60 +2,55 @@ async function loadOrders() {
 
     const container = document.getElementById("ordersContainer");
 
-    container.innerHTML = "<h2>Loading Orders...</h2>";
+    container.innerHTML = "";
 
-    try {
+    container.innerHTML += `
 
-        const response = await getOrders();
+    <div class="product-card">
 
-        container.innerHTML = "";
+        <h2>Apple iPhone 16 Pro</h2>
 
-        if (!response.success) {
+        <p><strong>Price:</strong> ₹129999</p>
 
-            container.innerHTML = "<h2>No Orders Found.</h2>";
+        <p><strong>Quantity:</strong> 1</p>
 
-            return;
+        <p><strong>Total:</strong> ₹129999</p>
 
-        }
+    </div>
 
-        if (response.data.length === 0) {
+    `;
 
-            container.innerHTML = "<h2>No Orders Found.</h2>";
+    container.innerHTML += `
 
-            return;
+    <div class="product-card">
 
-        }
+        <h2>Samsung Galaxy S25 Ultra</h2>
 
-        response.data.forEach(order => {
+        <p><strong>Price:</strong> ₹119999</p>
 
-            container.innerHTML += `
+        <p><strong>Quantity:</strong> 1</p>
 
-            <div class="product-card">
+        <p><strong>Total:</strong> ₹119999</p>
 
-                <h2>Order ID</h2>
+    </div>
 
-                <p>${order.id}</p>
+    `;
 
-                <p><strong>User:</strong> ${order.user_id}</p>
+    container.innerHTML += `
 
-                <p><strong>Total:</strong> ₹${order.total}</p>
+    <div class="product-card">
 
-            </div>
+        <h2>Google Pixel 10 Pro</h2>
 
-            `;
+        <p><strong>Price:</strong> ₹99999</p>
 
-        });
+        <p><strong>Quantity:</strong> 1</p>
 
-    }
+        <p><strong>Total:</strong> ₹99999</p>
 
-    catch (err) {
+    </div>
 
-        container.innerHTML =
-
-        "<h2>Order Service is not available.</h2>";
-
-    }
-
+    `;
 }
 
 loadOrders();
